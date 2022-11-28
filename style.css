@@ -1,17 +1,17 @@
 body{
   font-family: 'Dosis', sans-serif;
   background-color: #E72C70;
+  color: #F7F249;
+
 }
 
-.header{
-  color: #F7F249;
+.landing-page{
+  text-align: center;
 }
 
 .header img{
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  padding: 0;
+  width: 150px;
+  margin-top: 20px;
 }
 
 .button{
