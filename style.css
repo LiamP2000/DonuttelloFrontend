@@ -1,7 +1,7 @@
 body{
   font-family: 'Dosis', sans-serif;
-  background-color: #E72C70;
-  color: #F7F249;
+  background-color: #F7F249;
+  color: #E72C70;
 
 }
 
@@ -9,16 +9,36 @@ body{
   text-align: center;
 }
 
-.header img{
+header img{
   width: 150px;
   margin-top: 20px;
+  /*don't interact with other elements, go to top right*/
+  position: absolute;
+  top: 5%;
+  right: 5%;
 }
 
 .button{
-  background-color: #F7F249;
-  color: #E72C70;
+  background-color: #E72C70;
+  color: #fff;
   border-radius: 30px;
-  padding: 10px;
+  padding: 10px 20px;
   text-decoration: none;
   font-weight: 700;
+}
+
+h1{
+  margin-top: 200px;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+
+#homepage a{
+  font-size: 1.5em;
+}
+
+#homepage p{
+  font-size: 1.5em;
+  margin-bottom: 200px;
 }
