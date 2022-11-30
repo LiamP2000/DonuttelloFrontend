@@ -19,12 +19,28 @@ header img{
 }
 
 .button{
-  background-color: #E72C70;
   color: #fff;
   border-radius: 30px;
-  padding: 10px 20px;
+  padding: 10px 30px;
   text-decoration: none;
   font-weight: 700;
+}
+
+#nextTopping{
+  margin: auto;
+}
+
+.pink{
+  background-color: #E72C70;
+}
+
+.blue{
+  background-color: #2C9CE7;
+}
+
+.yellow{
+  background-color: #F7F249;
+  color: #E72C70;
 }
 
 #homepage h1{
@@ -50,6 +66,7 @@ header img{
   padding: 10px;
   border-radius: 30px;
   margin: 50px;
+  align-items: center;
 }
 
 #status ul{
