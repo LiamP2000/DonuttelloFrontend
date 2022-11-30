@@ -1,7 +1,14 @@
+:root{
+  --pink : #E72C70;
+  --blue : #2C9CE7;
+  --yellow : #F7F249;
+  --chocolate : #7B3F00;
+}
+
 body{
   font-family: 'Dosis', sans-serif;
-  background-color: #F7F249;
-  color: #E72C70;
+  background-color: var(--yellow);
+  color: var(--pink);
 
 }
 
@@ -18,10 +25,10 @@ header img{
   right: 5%;
 }
 
-.button{
+.btn{
   color: #fff;
   border-radius: 30px;
-  padding: 10px 30px;
+  padding: 0.6250em 30px;
   text-decoration: none;
   font-weight: 700;
 }
@@ -34,17 +41,17 @@ header img{
   margin: 10px auto;
 }
 
-.pink{
-  background-color: #E72C70;
+.btn--pink{
+  background-color: var(--pink);
 }
 
-.blue{
-  background-color: #2C9CE7;
+.btn--blue{
+  background-color: var(--blue);
 }
 
 .yellow{
-  background-color: #F7F249;
-  color: #E72C70;
+  background-color: var(--yellow);
+  color: var(--pink);
 }
 
 #homepage h1{
@@ -66,8 +73,8 @@ header img{
   color: #FFF;
   width: 40%;
   height: 50%;
-  background-color: #E72C70;
-  padding: 10px;
+  background-color: var(--pink);
+  padding: 0.6250em;
   border-radius: 30px;
   margin: 50px;
   align-items: center;
@@ -83,19 +90,29 @@ header img{
   margin: auto;
 }
 
+/*radio button in #status*/
+#status li input[type="radio"]{
+  display: none;
+}
+
 #status li{
   /*circle border radius*/
   border-radius: 50%;
-  background-color: #82D1E4;
+  background-color: var(--blue);
   width: 1em;
   height: 1em;
   /*center the text*/
   text-align: center;
+}
 
+#colorInput input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 #currentStatus{
-  border-color: #60D1D6;
+  border-color: var(--blue);
   border-style: solid;
   border-width: 5px;
 }
@@ -142,7 +159,7 @@ header img{
 }
 
 #chocolade{
-  background-color: #7B3F00;
+  background-color: var(--chocolate);
 }
 
 #kers{
@@ -155,8 +172,8 @@ header img{
 
 /*hover over chocolade change border, give shadow*/
 #chocolade:hover{
-  border-color: #7B3F00;
-  box-shadow: 0 0 10px #7B3F00;
+  border-color: var(--chocolate);
+  box-shadow: 0 0 10px var(--chocolate);
 }
 
 #kers:hover{
@@ -167,4 +184,30 @@ header img{
 #witteChocolade:hover{
   border-color: #f5f5dc;
   box-shadow: 0 0 10px #f5f5dc;
+}
+
+/*when mobile*/
+@media screen and (max-width: 600px){
+  header img{
+    position: static;
+    display: inline-block;
+    margin: auto;
+    align-self: center;
+  }
+  #donutPicker{
+    width: 80%;
+    margin: auto;
+  }
+
+
+  #toppings{
+    width: 90%;
+  }
+
+}
+
+@media screen and (max-width: 400px){
+  #toppings ul{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

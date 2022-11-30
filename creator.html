@@ -24,25 +24,38 @@
           </ul>
         </div>
         <h2>Kies je toping</h2>
-        <div id="toppings">
-          <ul>
-            <li> 
-              <div id="chocolade"></div>
-              <p>Chocolade</p>
-            </li>
-            <li>
-              <div id="kers"></div>
-              <p>Kers</p>
-            </li>
-            <li>
-              <div id="witteChocolade"></div>
-              <p>Witte chocoladee</p>
-            </li>
-          </ul>
-        </div>
-        <a href="#" id="nextTopping" class="blue button">Next</a>
+          <!--color form-->
+          <form id="toppings">
+            <!--list of 3 empty squares and you can pick 1-->
+            <ul>
+              <li>
+              <input class="colorInput" type="radio" name="color" id="chocolade" value="chocolade">
+              <label for="chocolade" class="chocolade">
+                <div id="chocolade"></div>
+              </label>
+                <p>Chocolade</p>
+              </li>
+              <li>
+                <input class="colorInput" type="radio" name="color" id="kers" value="kers">
+                <label for="kers" class="kers">
+                  <div id="kers"></div>
+                </label>
+                <p>Kers</p>
+              </li>
+              <li>
+                <input class="colorInput" type="radio" name="color" id="witteChocolade" value="witteChocolade">
+                <label for="witteChocolade" class="witteChocolade">
+                  <div id="witteChocolade"></div>
+                </label>
+                <p>Witte Chocoladee</p>
+              </li>
+
+            </ul>
+          </form>
+        <a href="#" id="nextTopping" class="btn--blue btn">Next</a>
       </div>
       <div id="donutCanvas">
+        <!--threejs canvas-->
       </div>
     </main>
   </body>
