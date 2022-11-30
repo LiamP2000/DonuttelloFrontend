@@ -94,10 +94,7 @@ header img{
   margin: auto;
 }
 
-/*radio button in #status*/
-#status li input[type="radio"]{
-  display: none;
-}
+
 
 #status li{
   /*circle border radius*/
@@ -144,13 +141,38 @@ header img{
   grid-gap: 20px;
 }
 
+#lastStep ul {
+  display: block;
+
+}
+
+#oreo{
+  background-image: url("/public/images/oreo.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+#marshmellows{
+  background-image: url("/public/images/mini-marshmallows.jpg");
+  background-size: 700%;
+  background-position: center;
+}
+
+#sprinkles{
+  background-image: url("/public/images/colorful-sprinkles.jpg");
+  background-size: 750%;  
+}
+
 #toppings li{
   /*virtical align*/
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+#lastStep li{
+  display: inline-block;
+  margin: 0 10px;
+}
 #toppings li div{
   border-radius: 5px;
   width: 50px;
@@ -159,6 +181,14 @@ header img{
   border-color: #000;
   border-style: solid;
   border-width: 1px;
+}
+
+#topping{
+  display: none;
+}
+
+#lastStep{
+  display: none;
 }
 
 #chocolade{

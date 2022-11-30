@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public/css/style.css">
     <title>Donut Creator</title>
   </head>
   <body>
@@ -23,7 +23,7 @@
             <li>3</li>
           </ul>
         </div>
-        <h2>Kies je glazuur</h2>
+        <h2 id="action">Kies je <span id="currentH2">glazuur</span></h2>
           <form id="toppings">
 
             <!--glazuur kiezer-->
@@ -48,12 +48,52 @@
                   <label for="witteChocolade" class="witteChocolade">
                     <div id="witteChocolade"></div>
                   </label>
-                  <p>Witte Chocoladee</p>
+                  <p>Witte Chocolade</p>
                 </li>
               </ul>
             </div>
+            
+            <!--topping kiezer-->
+            <div id="topping">
+              <ul>
+                <li>
+                <input class="glazuurInput" type="radio" name="glazuur" id="sprinkles" value="sprinkles">
+                <label for="sprinkles" class="sprinkles">
+                  <div id="sprinkles"></div>
+                </label>
+                  <p>sprinkles</p>
+                </li>
+                <li>
+                  <input class="glazuurInput" type="radio" name="glazuur" id="oreo" value="oreo">
+                  <label for="oreo" class="oreo">
+                    <div id="oreo"></div>
+                  </label>
+                  <p>Oreo</p>
+                </li>
+                <li>
+                  <input class="glazuurInput" type="radio" name="glazuur" id="marshmellows" value="marshmellows">
+                  <label for="marshmellows" class="marshmellows">
+                    <div id="marshmellows"></div>
+                  </label>
+                  <p>Marshmellows</p>
+                </li>
+              </ul>
+            </div>
+          
+            <!--logo uploaden en info achterlaten-->
+            <div id="lastStep">
+              <ul>
+                <li>
+                <label for="logo" class="logo">
+                  <p>Upload jullie logo</p>
+                </label>
+                <input type="file" accept="image/x-png,image/jpeg" name="glazuur" id="logo" value="logo">
+                </li>
+              </ul>
+            </div>
+
             <!--submit 'Next class btn btn--blue'-->
-            <button id="nextTopping" class="btn btn--blue">Next</button>
+            <button type="button" id="nextTopping" class="btn btn--blue">Next</button>
           </form>
       </div>
       <div id="donutCanvas">
@@ -62,4 +102,5 @@
     </main>
   </body>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="public/js/donutPageSellector.js"></script>
 </html>
