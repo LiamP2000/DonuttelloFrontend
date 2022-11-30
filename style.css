@@ -27,7 +27,11 @@ header img{
 }
 
 #nextTopping{
+  display: block;
   margin: auto;
+  text-align: center;
+  width: max-content;
+  margin: 10px auto;
 }
 
 .pink{
