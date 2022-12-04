@@ -3,6 +3,8 @@
   --blue : #2C9CE7;
   --yellow : #F7F249;
   --chocolate : #7B3F00;
+  --kers : #FF4C8E;
+  --witteChocolade : #f5f5dc;
 }
 
 body{
@@ -93,8 +95,6 @@ header img{
   width: 60%;
   margin: auto;
 }
-
-
 
 #status li{
   /*circle border radius*/
@@ -196,7 +196,7 @@ header img{
 }
 
 #kers{
-  background-color: #FF4C8E;
+  background-color: var(--kers);
 }
 
 #witteChocolade{
@@ -239,7 +239,12 @@ header img{
 
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px) {
+  #toppings ul{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 900px){
   #toppings ul{
     grid-template-columns: repeat(2, 1fr);
   }

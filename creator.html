@@ -24,30 +24,21 @@
           </ul>
         </div>
         <h2 id="action">Kies je <span id="currentH2">glazuur</span></h2>
-          <form id="toppings">
+          <div id="toppings">
 
             <!--glazuur kiezer-->
             <div id="glazuur">
               <ul>
                 <li>
-                <input class="glazuurInput" type="radio" name="glazuur" id="chocolade" value="chocolade">
-                <label for="chocolade" class="chocolade">
                   <div id="chocolade"></div>
-                </label>
                   <p>Chocolade</p>
                 </li>
                 <li>
-                  <input class="glazuurInput" type="radio" name="glazuur" id="kers" value="kers">
-                  <label for="kers" class="kers">
-                    <div id="kers"></div>
-                  </label>
+                  <div id="kers"></div>
                   <p>Kers</p>
                 </li>
                 <li>
-                  <input class="glazuurInput" type="radio" name="glazuur" id="witteChocolade" value="witteChocolade">
-                  <label for="witteChocolade" class="witteChocolade">
-                    <div id="witteChocolade"></div>
-                  </label>
+                  <div id="witteChocolade"></div>
                   <p>Witte Chocolade</p>
                 </li>
               </ul>
@@ -57,24 +48,15 @@
             <div id="topping">
               <ul>
                 <li>
-                <input class="glazuurInput" type="radio" name="glazuur" id="sprinkles" value="sprinkles">
-                <label for="sprinkles" class="sprinkles">
                   <div id="sprinkles"></div>
-                </label>
                   <p>sprinkles</p>
                 </li>
                 <li>
-                  <input class="glazuurInput" type="radio" name="glazuur" id="oreo" value="oreo">
-                  <label for="oreo" class="oreo">
-                    <div id="oreo"></div>
-                  </label>
+                  <div id="oreo"></div>
                   <p>Oreo</p>
                 </li>
                 <li>
-                  <input class="glazuurInput" type="radio" name="glazuur" id="marshmellows" value="marshmellows">
-                  <label for="marshmellows" class="marshmellows">
-                    <div id="marshmellows"></div>
-                  </label>
+                  <div id="marshmellows"></div>
                   <p>Marshmellows</p>
                 </li>
               </ul>
@@ -84,9 +66,7 @@
             <div id="lastStep">
               <ul>
                 <li>
-                <label for="logo" class="logo">
-                  <p>Upload jullie logo</p>
-                </label>
+                <p>Upload jullie logo</p>
                 <input type="file" accept="image/x-png,image/jpeg" name="glazuur" id="logo" value="logo">
                 </li>
               </ul>
@@ -94,7 +74,7 @@
 
             <!--submit 'Next class btn btn--blue'-->
             <button type="button" id="nextTopping" class="btn btn--blue">Next</button>
-          </form>
+          </div>
       </div>
       <div id="donutCanvas">
         <!--threejs canvas-->
@@ -103,4 +83,5 @@
   </body>
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="public/js/donutPageSellector.js"></script>
+    <script type="text/javascript" src="public/js/selector.js"></script>
 </html>
