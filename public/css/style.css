@@ -14,6 +14,28 @@ body{
 
 }
 
+#donutPicker{
+  color: #FFF;
+  width: 40%;
+  height: 50%;
+  background-color: var(--pink);
+  padding: 0.6250em;
+  border-radius: 30px;
+  margin: 50px;
+  align-items: center;
+}
+
+#donutCanvas{
+  width: 40%;
+  height: 50%;
+  background-color: var(--pink);
+  padding: 0.6250em;
+  border-radius: 30px;
+  margin: 50px;
+  
+  height: 500px;
+}
+
 .landing-page{
   text-align: center;
 }
@@ -70,16 +92,6 @@ header img{
 #homepage p{
   font-size: 1.5em;
   margin-bottom: 150px;
-}
-#donutPicker{
-  color: #FFF;
-  width: 40%;
-  height: 50%;
-  background-color: var(--pink);
-  padding: 0.6250em;
-  border-radius: 30px;
-  margin: 50px;
-  align-items: center;
 }
 
 #status{
@@ -147,19 +159,19 @@ header img{
 }
 
 #oreo{
-  background-image: url("/public/images/oreo.webp");
+  background-image: url("/images/oreo.webp");
   background-size: cover;
   background-position: center;
 }
 
 #marshmellows{
-  background-image: url("/public/images/mini-marshmallows.jpg");
+  background-image: url("/images/mini-marshmallows.jpg");
   background-size: 700%;
   background-position: center;
 }
 
 #sprinkles{
-  background-image: url("/public/images/colorful-sprinkles.jpg");
+  background-image: url("/images/colorful-sprinkles.jpg");
   background-size: 750%;  
 }
 
@@ -169,10 +181,12 @@ header img{
   flex-direction: column;
   align-items: center;
 }
+
 #lastStep li{
   display: inline-block;
   margin: 0 10px;
 }
+
 #toppings li div{
   border-radius: 5px;
   width: 50px;
@@ -203,7 +217,6 @@ header img{
   background-color: #f5f5dc;
 }
 
-/*hover over chocolade change border, give shadow*/
 #chocolade:hover{
   border-color: var(--chocolate);
   box-shadow: 0 0 10px var(--chocolate);
@@ -219,7 +232,6 @@ header img{
   box-shadow: 0 0 10px #f5f5dc;
 }
 
-/*when on mobile*/
 @media screen and (max-width: 600px){
   header img{
     position: static;
@@ -227,16 +239,20 @@ header img{
     margin: auto;
     align-self: center;
   }
+
   #donutPicker{
     width: 80%;
     margin: auto;
   }
 
+  #donutCanvas{
+    width: 80%;
+    margin: auto;
+  }
 
   #toppings{
     width: 90%;
   }
-
 }
 
 @media screen and (max-width: 400px) {
@@ -244,7 +260,7 @@ header img{
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (min-width: 600px) and (max-width: 900px){
+@media screen and (min-width: 601px) and (max-width: 900px){
   #toppings ul{
     grid-template-columns: repeat(2, 1fr);
   }
