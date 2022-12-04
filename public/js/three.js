@@ -1,5 +1,5 @@
 import './style.css'
-import * as THREE from '../../node_modules/three/build';
+import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const donutCanvas = document.getElementById('app');
