@@ -7,12 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Donut Creator</title>
   </head>
   <body>
     <header>
-      <img src="/public/images/logo-blue.png" alt="Donuttello logo">
+      <img src="/images/logo-blue.png" alt="Donuttello logo">
     </header>
     <main>
       <div id="donutPicker">
@@ -76,13 +76,14 @@
             <button type="button" id="nextTopping" class="btn btn--blue">Next</button>
           </div>
       </div>
-      <canvas id="donutCanvas">
+      <div id="donutCanvas">
         <!--threejs canvas-->
-      </canvas>
+        <canvas id="app"></canvas>
+      </div>
     </main>
-  </body>
     <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="public/js/donutPageSellector.js"></script>
-    <script type="text/javascript" src="public/js/selector.js"></script>
-    <script type="module" src="public/js/three.js"></script>
+    <script type="text/javascript" src="js/donutPageSellector.js"></script>
+    <script type="text/javascript" src="js/selector.js"></script>
+    <script type="module" src="js/three.js"></script>
+  </body>
 </html>

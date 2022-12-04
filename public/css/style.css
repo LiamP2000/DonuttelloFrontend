@@ -28,8 +28,10 @@ body{
 #donutCanvas{
   width: 40%;
   height: 50%;
-  background-color: var(--pink);
-  padding: 0.6250em;
+  border-color: var(--pink);
+  border-width: 5px;
+  border-style: solid;
+  padding: calc(0.6250em/2);
   border-radius: 30px;
   margin: 50px;
   
@@ -159,19 +161,19 @@ header img{
 }
 
 #oreo{
-  background-image: url("/public/images/oreo.webp");
+  background-image: url("/images/oreo.webp");
   background-size: cover;
   background-position: center;
 }
 
 #marshmellows{
-  background-image: url("/public/images/mini-marshmallows.jpg");
+  background-image: url("/images/mini-marshmallows.jpg");
   background-size: 700%;
   background-position: center;
 }
 
 #sprinkles{
-  background-image: url("/public/images/colorful-sprinkles.jpg");
+  background-image: url("/images/colorful-sprinkles.jpg");
   background-size: 750%;  
 }
 
