@@ -59,7 +59,11 @@ header img{
   font-weight: 700;
 }
 
-#nextTopping{
+#topping__submit{
+  display: none;
+}
+
+.btn--topping{
   display: block;
   margin: auto;
   text-align: center;

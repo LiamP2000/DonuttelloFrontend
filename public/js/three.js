@@ -36,11 +36,6 @@ const donut = scene.getObjectByName('donut');
 const glaze = scene.getObjectByName('glaze');
 const sprinkles = scene.getObjectByName('sprinkles');
 
-/** check if donut has layers */
-console.log(donut);
-console.log(glaze);
-console.log(sprinkles);
-console.log(scene);
 
 /** get layers of donut.glb *//*
 const donut = scene.getObjectByName('donut');

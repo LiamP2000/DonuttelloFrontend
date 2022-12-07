@@ -5,10 +5,6 @@ let picks = [];
 var currentPick;
 var info = [];
 
-console.log(currentPage);
-
-
-
 function pickTopping() {
     if(currentPage == 1) {
         /** create variables */
@@ -66,7 +62,6 @@ function pickTopping() {
         }
         );
     }
-    console.log(currentPage);
     if(currentPage == 2) {
         var sprinkles = document.getElementById("sprinkles");
         var oreo = document.getElementById("oreo");
@@ -76,7 +71,6 @@ function pickTopping() {
 
             /**handel data */
             currentPick = "sprinkles";
-            console.log(currentPick);
 
             /** edit css */
             sprinkles.style.boxShadow = "0 0 10px #fff";
@@ -91,7 +85,6 @@ function pickTopping() {
 
             /**handel data */
             currentPick = "oreo";
-            console.log(currentPick);
 
             /** edit css */
             oreo.style.boxShadow = "0 0 10px #fff";
@@ -106,7 +99,6 @@ function pickTopping() {
 
             /**handel data */
             currentPick = "marshmellows";
-            console.log(currentPick);
 
             /** edit css */
             marshmellows.style.boxShadow = "0 0 10px #fff";
@@ -120,11 +112,11 @@ function pickTopping() {
     }
 }
 
-/* on click nextTopping put currentPick in picks*/
+/* on click topping__next put currentPick in picks*/
 
 function nextTopping() {
     pickTopping();
-document.getElementById("nextTopping").addEventListener("click", function() {
+document.getElementById("topping__next").addEventListener("click", function() {
     picks.push(currentPick);
     console.log(picks);
     currentPage++;
@@ -137,12 +129,26 @@ document.getElementById("nextTopping").addEventListener("click", function() {
         /** check which radio input is sellected and push it to toppings*/
     }
     if(currentPage == 3) {
+        document.getElementById("topping__next").style.display = "none";
+        document.getElementById("topping__submit").style.display = "block";
         document.getElementById("topping").style.display = "none";
         document.getElementById("lastStep").style.display = "block";
         document.getElementById('action').innerHTML = "Upload je logo";
         /**set text og h2 to 'hi'*/
     }
     if(currentPage == 4) {
+        /** get all data from submit topping__submit */
+        info.push(picks);
+        info.push(document.getElementById("bedrijfsnaam").value);
+        info.push(document.getElementById("email").value);
+        info.push(document.getElementById("donuts").value);
+        info.push(document.getElementById("datum").value);
+        info.push(document.getElementById("logo").value);
+
+        console.log(info);
+
+
+
         /** download image from input on button press*/
         if(document.getElementById("logo").files.length == 0) {
             console.log("no file selected");

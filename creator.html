@@ -23,6 +23,7 @@
             <li>3</li>
           </ul>
         </div>
+        <form action="">
         <h2 id="action">Kies je <span id="currentH2">glazuur</span></h2>
           <div id="toppings">
 
@@ -71,15 +72,19 @@
                   <p>Email</p>
                   <input type="email" name="email" id="email" placeholder="Vul hier je email in...">
                   <p>Hoeveel donuts</p>
-                  <input type="number" name="amount" id="email" placeholder="Minstens 6 donuts">
+                  <input type="number" name="amount" id="donuts" placeholder="Minstens 6 donuts">
+                  <!--datum-->
+                  <p>Wanneer wil je de donuts?</p>
+                  <input type="date" name="date" id="date">
                 <p>Upload jullie logo</p>
                 <input type="file" accept="image/x-png,image/jpeg" name="glazuur" id="logo" value="logo">
                 </li>
               </ul>
             </div>
-
+            <button type="submit" id="topping__submit" class="btn btn--topping btn--blue">Verstuur</button>
+          </form>
             <!--submit 'Next class btn btn--blue'-->
-            <button type="button" id="nextTopping" class="btn btn--blue">Next</button>
+            <button type="button" id="topping__next" class="btn btn--topping btn--blue">Next</button>
           </div>
       </div>
       <div id="donutCanvas">
