@@ -3,7 +3,7 @@ import { GLTFLoader } from '../../node_modules/three/examples/jsm/loaders/GLTFLo
 
 const donutCanvas = document.getElementById('app');
 const renderer = new THREE.WebGLRenderer({canvas: donutCanvas});
-renderer.setSize( window.innerWidth/10*4, window.innerHeight/2-50 );
+renderer.setSize( window.innerWidth/10*4, 500 );
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, donutCanvas.clientWidth / donutCanvas.clientHeight, 0.1, 1000);
 
@@ -43,6 +43,11 @@ camera.position.y = 0.12;
 camera.lookAt(0, 0, 0);
 
 function animate() {
+    renderer.setSize( window.innerWidth/10*4, 500 );
+    /** fix camera */
+    camera.aspect = donutCanvas.clientWidth / donutCanvas.clientHeight;
+    camera.updateProjectionMatrix();
+    
     requestAnimationFrame(animate);
     /**rotate donut */
     scene.rotation.y += 0.001;
