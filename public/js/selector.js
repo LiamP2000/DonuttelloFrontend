@@ -1,7 +1,9 @@
+
 let currentPage = 1;
 var toppings = [];
 let picks = [];
 var currentPick;
+var info = [];
 
 console.log(currentPage);
 
@@ -141,6 +143,29 @@ document.getElementById("nextTopping").addEventListener("click", function() {
         /**set text og h2 to 'hi'*/
     }
     if(currentPage == 4) {
+        /** download image from input on button press*/
+        if(document.getElementById("logo").files.length == 0) {
+            console.log("no file selected");
+        } else {
+            var file = document.getElementById("logo").files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                info.push(e.target.result);
+                console.log(info);
+            }
+            reader.readAsDataURL(file);
+        }
+
+        /** show image on page */
+        if(info.length > 0) {
+            document.getElementById("logo").backgroundImage = info[0];
+        }
+
+        /** upload image to server */
+        
+
+        /** redirect to /order */
+
         console.log("upload");
     }
 })};

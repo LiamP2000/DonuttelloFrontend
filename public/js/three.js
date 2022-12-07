@@ -1,6 +1,7 @@
 import * as THREE from '../../node_modules/three/build/three.module.js';
 import { GLTFLoader } from '../../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
 
+
 const donutCanvas = document.getElementById('app');
 const renderer = new THREE.WebGLRenderer({canvas: donutCanvas});
 renderer.setSize( window.innerWidth/10*4, 500 );
@@ -30,11 +31,35 @@ loader.load('../models/donut.glb', function (gltf) {
     console.error(error);
 });
 
-
-/** get layers of donut.glb */
-
+/** turn donut into layers */
 const donut = scene.getObjectByName('donut');
+const glaze = scene.getObjectByName('glaze');
+const sprinkles = scene.getObjectByName('sprinkles');
+
+/** check if donut has layers */
 console.log(donut);
+console.log(glaze);
+console.log(sprinkles);
+console.log(scene);
+
+/** get layers of donut.glb *//*
+const donut = scene.getObjectByName('donut');
+const glaze = scene.getObjectByName('glaze');
+const sprinkles = scene.getObjectByName('sprinkles');*/
+
+/** create flat logoPlate with image on flat sidde */
+const geometry = new THREE.BoxGeometry(0.08, 0.04, 0.001);
+const texture = new THREE.TextureLoader().load('../images/logo.png');
+const material = new THREE.MeshBasicMaterial({map: texture});
+const logoPlate = new THREE.Mesh(geometry, material);
+scene.add(logoPlate);
+
+/** set logoPlate position */
+logoPlate.position.y = 0.04;
+logoPlate.position.z = -0.035;
+
+/* set logoPlate rotation */
+logoPlate.rotation.x = -1;
 
 /** set camera position */
 camera.position.z = 0.14;
@@ -43,7 +68,14 @@ camera.position.y = 0.12;
 camera.lookAt(0, 0, 0);
 
 function animate() {
-    renderer.setSize( window.innerWidth/10*4, 500 );
+
+
+    /** if window < 600px */
+        renderer.setSize( window.innerWidth/10*4, 500 );
+    if(window.innerWidth < 600) {
+        renderer.setSize( window.innerWidth, 500 );
+    }
+
     /** fix camera */
     camera.aspect = donutCanvas.clientWidth / donutCanvas.clientHeight;
     camera.updateProjectionMatrix();
@@ -52,8 +84,18 @@ function animate() {
     /**rotate donut */
     scene.rotation.y += 0.001;
 
-    /**rotate cube */
+    /**rotate logoPlate */
     renderer.render(scene, camera);
+    /**set donut glaze color to blue*/
+    
+    
+    /*
+    if(currentPage == 4) {
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+            document.body.appendChild(canvas)
+        });
+        console.log("upload");
+    }*/
 }
 
 animate();
