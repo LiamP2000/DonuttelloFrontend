@@ -8,6 +8,10 @@ renderer.setSize( window.innerWidth/10*4, 500 );
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, donutCanvas.clientWidth / donutCanvas.clientHeight, 0.1, 1000);
 
+var glaze;
+var sprinkles;
+var dough;
+
 /** make scene and canvas see through*/
 
 renderer.setClearColor(0x000000, 0);
@@ -23,24 +27,16 @@ const light = new THREE.PointLight(0xffffff, 1, 1000);
 light.position.set(0.2, 0.3, 0.5);
 scene.add(light);
 
-/** load glb file from ../models/donut.glb */
+/** load glb file from ../models/donut.glb and console log glaze and sprinkles*/
 const loader = new GLTFLoader();
-loader.load('../models/donut.glb', function (gltf) {
-    scene.add(gltf.scene);
+loader.load('../models/donut.glb', function (donut) {
+    scene.add(donut.scene);
+    glaze = donut.scene.children[0];
+    sprinkles = donut.scene.children[1];
+    dough = donut.scene.children[2];
 }, undefined, function (error) {
     console.error(error);
 });
-
-/** turn donut into layers */
-const donut = scene.getObjectByName('donut');
-const glaze = scene.getObjectByName('glaze');
-const sprinkles = scene.getObjectByName('sprinkles');
-
-
-/** get layers of donut.glb *//*
-const donut = scene.getObjectByName('donut');
-const glaze = scene.getObjectByName('glaze');
-const sprinkles = scene.getObjectByName('sprinkles');*/
 
 /** create flat logoPlate with image on flat sidde */
 const geometry = new THREE.BoxGeometry(0.08, 0.04, 0.001);
@@ -64,7 +60,6 @@ camera.lookAt(0, 0, 0);
 
 function animate() {
 
-
     /** if window < 600px */
         renderer.setSize( window.innerWidth/10*4, 500 );
     if(window.innerWidth < 600) {
@@ -81,16 +76,22 @@ function animate() {
 
     /**rotate logoPlate */
     renderer.render(scene, camera);
-    /**set donut glaze color to blue*/
+
+    /** if currentPick exist set glaze to css var of currentPick */
+    if(currentPick) {
+        /**if currentPick is chocolade */
+        if(currentPick == "chocolade") {
+            glaze.material.color.set("#5c2d1f");
+        }
+        if(currentPick == "kers") {
+            glaze.material.color.set("#FF4C8E");
+        }
+        if(currentPick == "witteChocolade") {
+            glaze.material.color.set("#f5f5dc");
+        }
+    }
     
-    
-    /*
-    if(currentPage == 4) {
-        html2canvas(document.querySelector("#capture")).then(canvas => {
-            document.body.appendChild(canvas)
-        });
-        console.log("upload");
-    }*/
+
 }
 
 animate();

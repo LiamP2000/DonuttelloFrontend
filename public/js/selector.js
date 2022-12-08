@@ -1,6 +1,5 @@
 
 let currentPage = 1;
-var toppings = [];
 let picks = [];
 var currentPick;
 var info = [];
@@ -116,7 +115,7 @@ function pickTopping() {
 
 function nextTopping() {
     pickTopping();
-document.getElementById("topping__next").addEventListener("click", function() {
+    document.getElementById("topping__next").addEventListener("click", function() {
     picks.push(currentPick);
     console.log(picks);
     currentPage++;
@@ -126,7 +125,6 @@ document.getElementById("topping__next").addEventListener("click", function() {
         document.getElementById("topping").style.display = "block";
         document.getElementById("glazuur").style.display = "none";
         document.getElementById('action').innerHTML = "Kies je topping";
-        /** check which radio input is sellected and push it to toppings*/
     }
     if(currentPage == 3) {
         document.getElementById("topping__next").style.display = "none";
