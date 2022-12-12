@@ -1,4 +1,3 @@
-
 let currentPage = 1;
 let picks = [];
 var currentPick;
@@ -171,21 +170,26 @@ function nextTopping() {
             console.log(data);
             
     
+            var fileInput = document.getElementById('logo');
+            var filename = fileInput.files[0].name;
+            console.log(filename);
+            data.set("logo", filename);
     
     
             /** download image from input on button press*/
-            if(document.getElementById("logo").files.length == 0) {
+            /*if(document.getElementById("logo").files.length == 0) {
                 console.log("no file selected");
             } else {
                 var file = document.getElementById("logo").files[0];
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     info.push(e.target.result);
-                    data.set("logo", e.target.result);
-                    console.log(info);
+                    console.log(e.target.result);
                 }
-                reader.readAsDataURL(file);
-            }
+                
+                data.set("logo", reader.result);
+                console.log(data);
+            }*/
     
             /** show image on page */
             if(info.length > 0) {
@@ -201,6 +205,25 @@ function nextTopping() {
 
             console.log(JSON.stringify(Object.fromEntries(data)));
             orderJSON = JSON.stringify(Object.fromEntries(data));
+
+            /* fetch data from API */
+            fetch('https://donuttello-api.onrender.com/donuts')
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+
+            /* post data to API */
+            fetch('https://donuttello-api.onrender.com/donuts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: orderJSON,
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+            })
+
 
             
         }
