@@ -3,6 +3,8 @@ let currentPage = 1;
 let picks = [];
 var currentPick;
 var info = [];
+let data = new Map();
+let orderJSON;
 
 function pickTopping() {
     if(currentPage == 1) {
@@ -18,6 +20,8 @@ function pickTopping() {
             /**handel data */
             currentPick = "chocolade";
             console.log(currentPick);
+            data.set("topping", currentPick);
+            console.log(data);
 
             /** edit css */
             chocolade.style.borderColor = "var(--chocolate)";
@@ -33,6 +37,8 @@ function pickTopping() {
             /** handel data */
             currentPick = "kers";
             console.log(currentPick);
+            data.set("topping", currentPick);
+            console.log(data);
 
             /** edit css */
             kers.style.borderColor = "var(--kers)";
@@ -48,6 +54,8 @@ function pickTopping() {
             /** handel data */
             currentPick = "witteChocolade";
             console.log(currentPick);
+            data.set("topping", currentPick);
+            console.log(data);
 
             /** edit css */
             witteChocolade.style.borderColor = "var(--witteChocolade)";
@@ -70,6 +78,8 @@ function pickTopping() {
 
             /**handel data */
             currentPick = "sprinkles";
+            data.set("sprinkles", currentPick);
+            console.log(data);
 
             /** edit css */
             sprinkles.style.boxShadow = "0 0 10px #fff";
@@ -84,6 +94,8 @@ function pickTopping() {
 
             /**handel data */
             currentPick = "oreo";
+            data.set("sprinkles", currentPick);
+            console.log(data);
 
             /** edit css */
             oreo.style.boxShadow = "0 0 10px #fff";
@@ -98,6 +110,8 @@ function pickTopping() {
 
             /**handel data */
             currentPick = "marshmellows";
+            data.set("sprinkles", currentPick);
+            console.log(data);
 
             /** edit css */
             marshmellows.style.boxShadow = "0 0 10px #fff";
@@ -134,44 +148,67 @@ function nextTopping() {
         document.getElementById('action').innerHTML = "Upload je logo";
         /**set text og h2 to 'hi'*/
     }
-    if(currentPage == 4) {
-        /** get all data from submit topping__submit */
-        info.push(picks);
-        info.push(document.getElementById("bedrijfsnaam").value);
-        info.push(document.getElementById("email").value);
-        info.push(document.getElementById("donuts").value);
-        info.push(document.getElementById("datum").value);
-        info.push(document.getElementById("logo").value);
-
-        console.log(info);
-
-
-
-        /** download image from input on button press*/
-        if(document.getElementById("logo").files.length == 0) {
-            console.log("no file selected");
-        } else {
-            var file = document.getElementById("logo").files[0];
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                info.push(e.target.result);
-                console.log(info);
-            }
-            reader.readAsDataURL(file);
-        }
-
-        /** show image on page */
-        if(info.length > 0) {
-            document.getElementById("logo").backgroundImage = info[0];
-        }
-
-        /** upload image to server */
+    
+});
+    document.getElementById("topping__submit").addEventListener("click", function() {
         
+            /** get all data from submit topping__submit */
+            info.push(picks);
+            info.push(document.getElementById("bedrijfsnaam").value);
+            info.push(document.getElementById("email").value);
+            info.push(document.getElementById("donuts").value);
+            info.push(document.getElementById("date").value);
 
-        /** redirect to /order */
+    
+            console.log(document.getElementById("bedrijfsnaam").value);
+            console.log(info);
 
-        console.log("upload");
-    }
-})};
+            data.set("clientName", document.getElementById("bedrijfsnaam").value);
+            data.set("clientEmail", document.getElementById("email").value);
+            data.set("amount", document.getElementById("donuts").value);
+            data.set("dueDate", document.getElementById("date").value);
+            data.set("description", document.getElementById("description").value);
+            console.log(data);
+            
+    
+    
+    
+            /** download image from input on button press*/
+            if(document.getElementById("logo").files.length == 0) {
+                console.log("no file selected");
+            } else {
+                var file = document.getElementById("logo").files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    info.push(e.target.result);
+                    data.set("logo", e.target.result);
+                    console.log(info);
+                }
+                reader.readAsDataURL(file);
+            }
+    
+            /** show image on page */
+            if(info.length > 0) {
+                document.getElementById("logo").backgroundImage = info[0];
+            }
+    
+            /** upload image to server */
+            
+    
+            /** redirect to /order */
+    
+            console.log("upload");
+
+            console.log(JSON.stringify(Object.fromEntries(data)));
+            orderJSON = JSON.stringify(Object.fromEntries(data));
+
+            
+        }
+    )
+};
+
+
+
+
 
 nextTopping();
