@@ -156,7 +156,14 @@ function animate() {
         logoPlate.material.map = texture;
     }
 
-    
+    /** on press on #donutCanvas */
+    donutCanvas.addEventListener('click', function() {
+        
+    });
+
+
+
+
 
 }
 
