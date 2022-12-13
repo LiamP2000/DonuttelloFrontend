@@ -46,6 +46,17 @@ loader.load('../models/donut.glb', function (donut) {
     oreo.push(donut.scene.children[2]);
     oreo.push(donut.scene.children[9]);
     oreo.push(donut.scene.children[10]);
+
+    /** make oreo marshmellow and sprinkles invisible */
+    sprinkles.visible = false;
+    marshmellows.forEach(function(marshmellow) {
+        marshmellow.visible = false;
+    })
+    oreo.forEach(function(oreo) {
+        oreo.visible = false;
+    })
+    /** rotate donut 45 deg */
+    donut.scene.rotation.y = -1;
 }, undefined, function (error) {
     console.error(error);
 });
