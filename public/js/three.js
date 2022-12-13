@@ -11,6 +11,8 @@ const camera = new THREE.PerspectiveCamera(75, donutCanvas.clientWidth / donutCa
 var glaze;
 var sprinkles;
 var dough;
+var marshmellows = [];
+var oreo = [];
 
 /** make scene and canvas see through*/
 
@@ -31,9 +33,19 @@ scene.add(light);
 const loader = new GLTFLoader();
 loader.load('../models/donut.glb', function (donut) {
     scene.add(donut.scene);
+    console.log(donut.scene);
     glaze = donut.scene.children[0];
     sprinkles = donut.scene.children[1];
-    dough = donut.scene.children[2];
+    dough = donut.scene.children[8];
+    marshmellows.push(donut.scene.children[3]);
+    marshmellows.push(donut.scene.children[4]);
+    marshmellows.push(donut.scene.children[5]);
+    marshmellows.push(donut.scene.children[6]);
+    marshmellows.push(donut.scene.children[7]);
+    /**oreo */
+    oreo.push(donut.scene.children[2]);
+    oreo.push(donut.scene.children[9]);
+    oreo.push(donut.scene.children[10]);
 }, undefined, function (error) {
     console.error(error);
 });
@@ -79,15 +91,51 @@ function animate() {
 
     /** if currentPick exist set glaze to css var of currentPick */
     if(currentPick) {
-        /**if currentPick is chocolade */
-        if(currentPick == "chocolade") {
-            glaze.material.color.set("#5c2d1f");
-        }
-        if(currentPick == "kers") {
-            glaze.material.color.set("#FF4C8E");
-        }
-        if(currentPick == "witteChocolade") {
-            glaze.material.color.set("#f5f5dc");
+        /**if  picks[0] exists*/
+        if(picks[1]) {
+
+        }if(picks[0]) {
+            /** if currentpick is sprinkles */
+            if(currentPick == "sprinkles") {
+                /** disable group oreo and marshmellows */
+                /**console log sprinkles */
+                oreo.forEach(element => {
+                    element.visible = false;
+                });
+                marshmellows.forEach(element => {
+                    element.visible = false;
+                });
+                sprinkles.visible = true;
+            }if(currentPick == "oreo") {
+                /** disable group sprinkles and marshmellows */
+                sprinkles.visible = false;
+                marshmellows.forEach(element => {
+                    element.visible = false;
+                });
+                oreo.forEach(element => {
+                    element.visible = true;
+                });
+            }if(currentPick == "marshmellows") {
+                /** disable group sprinkles and oreo */
+                sprinkles.visible = false;
+                oreo.forEach(element => {
+                    element.visible = false;
+                });
+                marshmellows.forEach(element => {
+                    element.visible = true;
+                });
+            }
+        }else{
+            /**if currentPick is chocolade */
+            if(currentPick == "chocolade") {
+                glaze.material.color.set("#5c2d1f");
+            }
+            if(currentPick == "kers") {
+                glaze.material.color.set("#FF4C8E");
+            }
+            if(currentPick == "witteChocolade") {
+                glaze.material.color.set("#f5f5dc");
+            }
         }
     }
     
