@@ -149,6 +149,13 @@ function animate() {
             }
         }
     }
+
+    /** if a new image is uploaded to input of #logo then use it as texture for logoPlate*/
+    if(document.getElementById('logo').files[0]) {
+        const texture = new THREE.TextureLoader().load(URL.createObjectURL(document.getElementById('logo').files[0]));
+        logoPlate.material.map = texture;
+    }
+
     
 
 }
