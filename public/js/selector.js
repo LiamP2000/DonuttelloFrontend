@@ -134,12 +134,20 @@ function nextTopping() {
     currentPage++;
 
     if(currentPage == 2) {
-    pickTopping();
+        document.getElementById("status--list").firstElementChild.classList.remove("status--current");
+        /** add it to second element */
+        document.getElementById("status--list").children[1].classList.add("status--current");
+
+        pickTopping();
         document.getElementById("topping").style.display = "block";
         document.getElementById("glazuur").style.display = "none";
         document.getElementById('action').innerHTML = "Kies je topping";
     }
     if(currentPage == 3) {
+        document.getElementById("status--list").children[1].classList.remove("status--current");
+        /** add it to third element */
+        document.getElementById("status--list").children[2].classList.add("status--current");
+
         document.getElementById("topping__next").style.display = "none";
         document.getElementById("topping__submit").style.display = "block";
         document.getElementById("topping").style.display = "none";
@@ -230,7 +238,51 @@ function nextTopping() {
     )
 };
 
+/** on click on document.getElementById("status--list").firstElementChild */
+document.getElementById("status--list").firstElementChild.addEventListener("click", function() {
+    document.getElementById("status--list").children[1].classList.remove("status--current");
+    document.getElementById("status--list").children[2].classList.remove("status--current");
+    document.getElementById("status--list").firstElementChild.classList.add("status--current");
 
+    document.getElementById("topping__next").style.display = "block";
+    document.getElementById("topping__submit").style.display = "none";
+    document.getElementById("topping").style.display = "none";
+    document.getElementById("lastStep").style.display = "none";
+    document.getElementById("glazuur").style.display = "block";
+    document.getElementById('action').innerHTML = "Kies je glazuur";
+    currentPage = 1;
+    /**remove boxshadow */
+    sprinkles.style.boxShadow = "none";
+    marshmellows.style.boxShadow = "none";
+    oreo.style.boxShadow = "none";
+    /**remove border */
+    sprinkles.style.borderColor = "#000";
+    marshmellows.style.borderColor = "#000";
+    oreo.style.borderColor = "#000";
+    picks = [];
+});
+
+/** on click on document.getElementById("status--list").children[1] */
+document.getElementById("status--list").children[1].addEventListener("click", function() {
+    /**only if currentpage is 3 */
+    if(currentPage == 3) {
+    document.getElementById("status--list").firstElementChild.classList.remove("status--current");
+    document.getElementById("status--list").children[2].classList.remove("status--current");
+    document.getElementById("status--list").children[1].classList.add("status--current");
+
+    document.getElementById("topping__next").style.display = "block";
+    document.getElementById("topping__submit").style.display = "none";
+    document.getElementById("topping").style.display = "block";
+    document.getElementById("lastStep").style.display = "none";
+    document.getElementById("glazuur").style.display = "none";
+    document.getElementById('action').innerHTML = "Kies je topping";
+    currentPage = 2;
+
+    /** only keep first data of picks[] */
+    picks = picks.slice(0, 1);
+    console.log(picks);
+}
+});
 
 
 
