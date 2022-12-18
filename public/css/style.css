@@ -5,6 +5,7 @@
   --chocolate : #5c2d1f;
   --kers : #FF4C8E;
   --witteChocolade : #f5f5dc;
+  --blue__active : #2C50ff;
 }
 
 body{
@@ -103,6 +104,11 @@ header img{
 #homepage p{
   font-size: 1.5em;
   margin-bottom: 150px;
+}
+
+#status .currentStatus{
+  background-color: var(--blue__active);
+  border-color: var(--blue__active);
 }
 
 #status{
