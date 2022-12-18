@@ -230,7 +230,13 @@ function nextTopping() {
             .then((response) => response.json())
             .then((data) => {
                 console.log('Success:', data);
+                document.getElementById("success-msg").style.display = "block";
             })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById("error-msg").style.display = "block";
+            }
+            )
 
 
             
