@@ -67,6 +67,7 @@ header img{
 
 #topping__submit{
   display: none;
+  margin-top: 30px;
 }
 
 .btn--topping{
@@ -247,6 +248,24 @@ header img{
 #witteChocolade:hover{
   border-color: #f5f5dc;
   box-shadow: 0 0 10px #f5f5dc;
+}
+
+#success-msg, #error-msg{
+  display: none;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+  margin-left: 10px;
+}
+
+#success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+
+#error-msg {
+  color: red;
+  background-color: #FFBABA;
 }
 
 @media screen and (max-width: 1080px){
