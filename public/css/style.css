@@ -106,7 +106,7 @@ header img{
   margin-bottom: 150px;
 }
 
-#status .currentStatus{
+#status--list .status--current{
   background-color: var(--blue__active);
   border-color: var(--blue__active);
 }
