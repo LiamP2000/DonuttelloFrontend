@@ -84,9 +84,16 @@ camera.lookAt(0, 0, 0);
 function animate() {
 
     /** if window < 600px */
-        renderer.setSize( window.innerWidth/10*4, 500 );
-    if(window.innerWidth < 600) {
-        renderer.setSize( window.innerWidth, 500 );
+    renderer.setSize( window.innerWidth/10*8, 600 );
+    if(window.innerWidth > 1080) {
+        renderer.setSize( window.innerWidth/10*3, 500 );
+        camera.position.z = 0.14;
+    }if(window.innerWidth < 1080) {
+        renderer.setSize( window.innerWidth/10*8, 600 );
+        camera.position.z = 0.14;
+    }if(window.innerWidth < 500) {
+        /**set camera a bit back */
+        camera.position.z = 0.2;
     }
 
     /** fix camera */

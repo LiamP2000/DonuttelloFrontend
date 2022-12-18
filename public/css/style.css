@@ -14,6 +14,11 @@ body{
 
 }
 
+#creator--main{
+  display: flex;
+  flex-direction: row;
+}
+
 #donutPicker{
   color: #FFF;
   width: 40%;
@@ -238,14 +243,12 @@ header img{
   box-shadow: 0 0 10px #f5f5dc;
 }
 
-@media screen and (max-width: 600px){
-  header img{
-    position: static;
-    display: inline-block;
-    margin: auto;
-    align-self: center;
+@media screen and (max-width: 1080px){
+  #creator--main{
+    flex-direction: column;
+    /**center the elements**/
+    align-items: center;
   }
-
   #donutPicker{
     width: 80%;
     margin: auto;
@@ -255,6 +258,25 @@ header img{
     width: 80%;
     margin: auto;
   }
+}
+
+@media screen and (min-width: 601px) and (max-width: 900px){
+  #toppings ul{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #app{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px){
+  header img{
+    position: static;
+    display: inline-block;
+    margin: auto;
+    align-self: center;
+  }
+
 
   #toppings{
     width: 90%;
@@ -262,11 +284,6 @@ header img{
 }
 
 @media screen and (max-width: 400px) {
-  #toppings ul{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media screen and (min-width: 601px) and (max-width: 900px){
   #toppings ul{
     grid-template-columns: repeat(2, 1fr);
   }
